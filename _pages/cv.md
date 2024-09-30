@@ -3,6 +3,6 @@ layout: post
 title: CV
 nav: true
 nav_order: 3
-redirect: /_files/CV.pdf
-permalink: /cv/
+redirect: /files/CV.pdf
+permalink: /files/CV.pdf
 ---
