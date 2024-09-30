@@ -19,4 +19,4 @@ I am a Postdoctoral fellow at the Division of <a href="https://www.kth.se/is/rpl
 
 I am a former intern at <a href="https://ai.sony/">Sony AI</a> and <a href="https://sites.google.com/view/rsspioneers2021/home">RSS Pioneer</a>. I am also the co-creator of the <a href="https://talking-robotics.github.io/">Talking Robotics</a> podcast.
 
-I have a PhD in Computer Science from <a href="https://tecnico.ulisboa.pt/en/">Tecnico, University of Lisbon</a>, where I was supervised by <a href="https://ana-paiva.com/">Ana Paiva</a> and <a href="https://gaips.inesc-id.pt/~fmelo/">Francisco S. Melo</a>. I have an MSc and BSc in Engineering Physics from <a href="https://tecnico.ulisboa.pt/en/">Tecnico, University of Lisbon</a>.
+I have a PhD in Computer Science from <a href="https://tecnico.ulisboa.pt/en/">Tecnico, University of Lisbon</a>, where I was supervised by <a href="https://ana-paiva.com/">Ana Paiva</a> and <a href="https://scholar.google.com/citations?user=5AEeWU4AAAAJ&hl=en">Francisco S. Melo</a>. I have an MSc and BSc in Engineering Physics from <a href="https://tecnico.ulisboa.pt/en/">Tecnico, University of Lisbon</a>.
