@@ -1,115 +1,351 @@
 ---
 ---
 
-@string{aps = {American Physical Society,}}
-
-@book{einstein1920relativity,
-  title={Relativity: the Special and General Theory},
-  author={Einstein, Albert},
-  year={1920},
-  publisher={Methuen & Co Ltd},
-  html={relativity.html}
+@inproceedings{taleb2024can,
+abbr={NeurIPS},
+title={Can Transformers Smell Like Humans?},
+author={Taleb, Farzaneh and Vasco, Miguel and Ribeiro, Antonio H. and Bj{\"o}rkman, M{\aa}rten and Kragic, Danica},
+booktitle={The Thirty-eighth Annual Conference on Neural Information Processing Systems},
+year={2024},
+award_name={Spotlight},
+award={Spotlight Presentation at NeurIPS 2024},
+selected={true},
+url={https://openreview.net/forum?id=3f8i9GlBzu},
+html={https://openreview.net/forum?id=3f8i9GlBzu},
+abstract={The human brain encodes stimuli from the environment into representations that form a sensory perception of the world. Despite recent advances in understanding visual and auditory perception, olfaction remains an under-explored topic in the machine learning community due to the lack of large-scale datasets annotated with labels related to human olfactory perception. In this work, we ask the question of whether transformer models trained on chemical structures encode representations that are aligned with human olfactory perception, i.e., \emph{can transformers smell like humans}? We demonstrate, by means of three analyses, that representations encoded from transformers pre-trained on general chemical structures are highly aligned with human olfactory perception. We use 5 different datasets and 3 different types of perceptual representations to show that the representations encoded by transformer models are able to predict 1) labels associated with odorants‌‌ provided by experts; 2) ratings provided by human participants with respect to pre-defined descriptors; 3) similarity ratings between odorants provided by human participants. Finally, we also evaluate the extent to which this alignment is associated with chemical features of odorants known to be relevant for olfactory perception.},
+preview={olfaction_neurips.png}
 }
 
-@book{einstein1956investigations,
-  bibtex_show={true},
-  title={Investigations on the Theory of the Brownian Movement},
-  author={Einstein, Albert},
-  year={1956},
-  publisher={Courier Corporation},
-  preview={brownian-motion.gif}
+@inproceedings{esteves2024neuralsolver,
+abbr={NeurIPS},
+title={NeuralSolver: Learning Algorithms For Consistent and Efficient Extrapolation Across General Tasks},
+author={Esteves, Bernardo and Vasco, Miguel and Melo, Francisco S.},
+booktitle={The Thirty-eighth Annual Conference on Neural Information Processing Systems},
+year={2024},
+selected={true},
+url={https://openreview.net/forum?id=IxRf7Q3s5e},
+html={https://openreview.net/forum?id=IxRf7Q3s5e},
+abstract={We contribute NeuralSolver, a novel recurrent solver that can efficiently and consistently extrapolate, i.e., learn algorithms from smaller problems (in terms of observation size) and execute those algorithms in large problems. Contrary to previous recurrent solvers, NeuralSolver can be naturally applied in both same-size problems, where the input and output sizes are the same, and in different-size problems, where the size of the input and output differ. To allow for this versatility, we design NeuralSolver with three main components: a recurrent module, that iteratively processes input information at different scales, a processing module, responsible for aggregating the previously processed information, and a curriculum-based training scheme, that improves the extrapolation performance of the method.
+To evaluate our method we introduce a set of novel different-size tasks and we show that NeuralSolver consistently outperforms the prior state-of-the-art recurrent solvers in extrapolating to larger problems, considering smaller training problems and requiring less parameters than other approaches.},
+preview={neuralsolver.gif}
 }
 
-@article{einstein1950meaning,
-  abbr={AJP},
-  bibtex_show={true},
-  title={The meaning of relativity},
-  author={Einstein, Albert and Taub, AH},
-  journal={American Journal of Physics},
-  volume={18},
-  number={6},
-  pages={403--404},
-  year={1950},
-  publisher={American Association of Physics Teachers}
+@article{vasco2024superhuman,
+    abbr={RLC},
+    title={A Super-human Vision-based Reinforcement Learning Agent for Autonomous Racing in {Gran Turismo}},
+    author={Vasco*, Miguel and Seno*, Takuma and Kawamoto, Kenta and Subramanian, Kaushik and Wurman, Peter R. and Stone, Peter},
+    journal={Reinforcement Learning Journal},
+    volume={4},
+    pages={1674--1710},
+    year={2024},
+    annotation={*Shared first-authorship},
+    award={Outstading Paper Award in Applications of RL},
+    selected={true},
+    award_name={Outstanding Paper Award},
+    abstract={Racing autonomous cars faster than the best human drivers has been a longstanding grand challenge for the fields of Artificial Intelligence and robotics. Recently, an end-to-end deep reinforcement learning agent met this challenge in a high-fidelity racing simulator, Gran Turismo. However, this agent relied on global features that require instrumentation external to the car. This paper introduces, to the best of our knowledge, the first super-human car racing agent whose sensor input is purely local to the car, namely pixels from an ego-centric camera view and quantities that can be sensed from on-board the car, such as the car's velocity. By leveraging global features only at training time, the learned agent is able to outperform the best human drivers in time trial (one car on the track at a time) races using only local input features. The resulting agent is evaluated in Gran Turismo 7 on multiple tracks and cars. Detailed ablation experiments demonstrate the agent's strong reliance on visual inputs, making it the first vision-based super-human car racing agent.},
+    html={https://ai.sony/publications/A-Super-human-Vision-based-Reinforcement-Learning-Agent-for-Autonomous-Racing-in-Gran-Turismo/},
+    pdf={https://arxiv.org/pdf/2406.12563},
+    url={http://link.aps.org/doi/10.1103/PhysRev.47.777},
+    preview={rlc_2024.gif}
+
 }
 
-@article{PhysRev.47.777,
-  abbr={PhysRev},
-  title={Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?},
-  author={Einstein*†, A. and Podolsky*, B. and Rosen*, N.},
-  abstract={In a complete theory there is an element corresponding to each element of reality. A sufficient condition for the reality of a physical quantity is the possibility of predicting it with certainty, without disturbing the system. In quantum mechanics in the case of two physical quantities described by non-commuting operators, the knowledge of one precludes the knowledge of the other. Then either (1) the description of reality given by the wave function in quantum mechanics is not complete or (2) these two quantities cannot have simultaneous reality. Consideration of the problem of making predictions concerning a system on the basis of measurements made on another system that had previously interacted with it leads to the result that if (1) is false then (2) is also false. One is thus led to conclude that the description of reality as given by a wave function is not complete.},
-  journal={Phys. Rev.},
-  location={New Jersey},
-  volume={47},
-  issue={10},
-  pages={777--780},
-  numpages={0},
-  year={1935},
-  month={May},
-  publisher=aps,
-  doi={10.1103/PhysRev.47.777},
-  url={http://link.aps.org/doi/10.1103/PhysRev.47.777},
-  html={https://journals.aps.org/pr/abstract/10.1103/PhysRev.47.777},
-  pdf={example_pdf.pdf},
-  altmetric={248277},
-  dimensions={true},
-  google_scholar_id={qyhmnyLat1gC},
-  video={https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ},
-  additional_info={. *More Information* can be [found here](https://github.com/alshedivat/al-folio/)},
-  annotation={* Example use of superscripts<br>† Albert Einstein},
+@inproceedings{zhang2024will,
+  title={Will You Participate? Exploring the Potential of Robotics Competitions on Human-Centric Topics},
+  author={Zhang, Yuchong and Vasco, Miguel and Bj{\"o}rkman, M{\aa}rten and Kragic, Danica},
+  booktitle={International Conference on Human-Computer Interaction},
+  pages={240--255},
+  year={2024},
+  organization={Springer},
+  html={https://link.springer.com/chapter/10.1007/978-3-031-60412-6_18},
+  pdf={https://arxiv.org/pdf/2403.18616},
+  url={https://link.springer.com/chapter/10.1007/978-3-031-60412-6_18},
+  preview={hcii_2024.png},
+  abstract={This paper presents findings from an exploratory needfinding study investigating the research current status and potential participation of the competitions on the robotics community towards four human-centric topics: safety, privacy, explainability, and federated learning. We conducted a survey with 34 participants across three distinguished European robotics consortia, nearly 60% of whom possessed over five years of research experience in robotics. Our qualitative and quantitative analysis revealed that current mainstream robotic researchers prioritize safety and explainability, expressing a greater willingness to invest in further research in these areas. Conversely, our results indicate that privacy and federated learning garner less attention and are perceived to have lower potential. Additionally, the study suggests a lack of enthusiasm within the robotics community for participating in competitions related to these topics. Based on these findings, we recommend targeting other communities, such as the machine learning community, for future competitions related to these four human-centric topics.},
+}
+
+
+@article{reichlin2024goal,
+  title={Goal-Conditioned Offline Reinforcement Learning via Metric Learning},
+  author={Reichlin, Alfredo and Vasco, Miguel and Yin, Hang and Kragic, Danica},
+  journal={arXiv preprint arXiv:2402.10820},
+  year={2024},
+  abstract={We address the problem of learning optimal behavior from sub-optimal datasets for goal-conditioned offline reinforcement learning. To do so, we propose the use of metric learning to approximate the optimal value function for goal-conditioned offline RL problems under sparse rewards, invertible actions and deterministic transitions. We introduce distance monotonicity, a property for representations to recover optimality and propose an optimization objective that leads to such property. We use the proposed value function to guide the learning of a policy in an actor-critic fashion, a method we name MetricRL. Experimentally, we show that our method estimates optimal behaviors from severely sub-optimal offline datasets without suffering from out-of-distribution estimation errors. We demonstrate that MetricRL consistently outperforms prior state-of-the-art goal-conditioned RL methods in learning optimal policies from sub-optimal offline datasets.},
+  html={https://arxiv.org/abs/2402.10820},
+  url={https://arxiv.org/abs/2402.10820},
+  preview={goal_condition.png},
+}
+
+@inproceedings{santos2024centralized,
+  abbr={AAMAS},
+  title={Centralized Training with Hybrid Execution in Multi-Agent Reinforcement Learning},
+  author={Santos, Pedro P. and Carvalho, Diogo S. and Vasco, Miguel and Sardinha, Alberto and Santos, Pedro A. and Paiva, Ana and Melo, Francisco S.},
+  booktitle={Proceedings of the 23rd International Conference on Autonomous Agents and Multiagent Systems},
+  pages={2453--2455},
+  year={2024},
+  html={https://www.ifaamas.org/Proceedings/aamas2024},
+  pdf={https://www.ifaamas.org/Proceedings/aamas2024/pdfs/p2453.pdf},
+  url={https://www.ifaamas.org/Proceedings/aamas2024},
+  preview={hmarl.png},
+  abstract={We introduce hybrid execution in multi-agent reinforcement learn-
+ing (MARL), a new paradigm in which agents aim to successfully
+complete cooperative tasks with arbitrary communication levels at
+execution time by taking advantage of information-sharing among
+the agents. Under hybrid execution, the communication level can
+range from a setting in which no communication is allowed between
+agents (fully decentralized), to a setting featuring full communi-
+cation (fully centralized), but the agents do not know beforehand
+which communication level they will encounter at execution time.
+To formalize our setting, we define a new class of multi-agent par-
+tially observable Markov decision processes (POMDPs) that we
+name hybrid-POMDPs, which explicitly model a communication
+process between the agents.},
+}
+
+@inproceedings{esteves2023pre,
+  title={Pre-training with Augmentations for Efficient Transfer in Model-Based Reinforcement Learning},
+  author={Esteves, Bernardo and Vasco, Miguel and Melo, Francisco S.},
+  booktitle={EPIA Conference on Artificial Intelligence},
+  pages={133--145},
+  year={2023},
+  organization={Springer},
+  html={https://link.springer.com/chapter/10.1007/978-3-031-49008-8_11},
+  url={https://link.springer.com/chapter/10.1007/978-3-031-49008-8_11},
+  abstract={This work explores pre-training as a strategy to allow reinforcement learning (RL) algorithms to efficiently adapt to new (albeit similar) tasks. We argue for introducing variability during the pre-training phase, in the form of augmentations to the observations of the agent, to improve the sample efficiency of the fine-tuning stage. We categorize such variability in the form of perceptual, dynamic and semantic augmentations, which can be easily employed in standard pre-training methods. We perform extensive evaluations of our proposed augmentation scheme in model-based algorithms, across multiple scenarios of increasing complexity. The results consistently show that our augmentation scheme significantly improves the efficiency of the fine-tuning to novel tasks, outperforming other state-of-the-art pre-training approaches.},
+  preview={epia_2023.png},
+}
+
+@inproceedings{rajabi2023detecting,
+  title={Detecting the Intention of Object Handover in Human-Robot Collaborations: An EEG Study},
+  author={Rajabi, Nona and Khanna, Parag and Kanik, Sumeyra U Demir and Yadollahi, Elmira and Vasco, Miguel and Bj{\"o}rkman, M{\aa}rten and Smith, Christian and Kragic, Danica},
+  booktitle={2023 32nd IEEE International Conference on Robot and Human Interactive Communication (RO-MAN)},
+  pages={549--555},
+  year={2023},
+  organization={IEEE},
+  html={https://ieeexplore.ieee.org/document/10309426},
+  url={https://ieeexplore.ieee.org/document/10309426},
+  video={https://www.youtube.com/watch?v=RV9OnqEJy3k},
+  abstract={Human-robot collaboration (HRC) relies on smooth and safe interactions. In this paper, we focus on the human-to-robot handover scenario, where the robot acts as a taker. We investigate the feasibility of detecting the intention of a human-to-robot handover action through the analysis of electroencephalogram (EEG) signals. Our study confirms that temporal patterns in EEG signals provide information about motor planning and can be leveraged to predict the likelihood of an individual executing a motor task with an average accuracy of 94.7%. We also suggest the effectiveness of the time-frequency features of EEG signals in the final second prior to the movement for distinguishing between handover action and other actions. Furthermore, we classify human intentions for different tasks based on time-frequency representations of pre-movement EEG signals and achieve an average accuracy of 63.5% for contrasting every two tasks against each other. The result encourages the possibility of using EEG signals to detect human handover intention in HRC tasks.},
+  preview={roman_2023.png},
+}
+
+
+@inproceedings{rajabi2023mental,
+  title={Mental Face Image Retrieval Based on a Closed-Loop Brain-Computer Interface},
+  author={Rajabi, Nona and Chernik, Charles and Reichlin, Alfredo and Taleb, Farzaneh and Vasco, Miguel and Ghadirzadeh, Ali and Bj{\"o}rkman, M{\aa}rten and Kragic, Danica},
+  booktitle={International Conference on Human-Computer Interaction},
+  pages={26--45},
+  year={2023},
+  author+an = {5=highlight},
+  organization={Springer},
+  html={https://link.springer.com/chapter/10.1007/978-3-031-35017-7_3},
+  url={https://link.springer.com/chapter/10.1007/978-3-031-35017-7_3},
+  abstract={Retrieval of mental images from measured brain activity may facilitate communication, especially when verbal or muscular communication is impossible or inefficient. The existing work focuses mostly on retrieving the observed visual stimulus while our interest is on retrieving the imagined mental image. We present a closed-loop BCI framework to retrieve mental images of human faces. We utilize EEG signals as binary feedback to determine the relevance of an image to the target mental image. We employ the feedback to traverse the latent space of a generative model to propose new images closer to the actual target image. We evaluate the proposed framework on 13 volunteers. Unlike previous studies, we do not restrict the possible attributes of the resulting images to predefined semantic classes. Subjective and objective tests validate the ability of our model to retrieve face images similar to the actual target mental images.},
+  preview={hcii_2023.png},
+}
+
+
+@inproceedings{vital2022perceive,
+  title={Perceive, Represent, Generate: Translating Multimodal Information to Robotic Motion Trajectories},
+  author={Vital, F{\'a}bio and Vasco, Miguel and Sardinha, Alberto and Melo, Francisco},
+  booktitle={2022 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  pages={5855--5860},
+  year={2022},
+  organization={IEEE},
+  abstract={We present Perceive-Represent-Generate (PRG), a novel three-stage framework that maps perceptual information of different modalities (e.g., visual or sound), corresponding to a sequence of instructions, to an adequate sequence of movements to be executed by a robot. In the first stage, we perceive and pre-process the given inputs, isolating individual commands from the complete instruction provided by a human user. In the second stage we encode the individual commands into a multimodal latent space, employing a deep generative model. Finally, in the third stage we convert the multimodal latent values into individual trajectories and combine them into a single dynamic movement primitive, allowing its execution in a robotic platform. We evaluate our pipeline in the context of a novel robotic handwriting task, where the robot receives as input a word through different perceptual modalities (e.g., image, sound), and generates the corresponding motion trajectory to write it, creating coherent and readable handwritten words.},
+  html={https://ieeexplore.ieee.org/document/9981788},
+  pdf={https://arxiv.org/pdf/2204.03051},
+  url={https://ieeexplore.ieee.org/document/9981788},
+  preview={iros_2022.png},
+}
+
+
+@inProceedings{poklukar2022gmc,
+  abbr={ICML},
+  title = 	 {Geometric Multimodal Contrastive Representation Learning},
+  author =       {Poklukar*, Petra and Vasco*, Miguel and Yin, Hang and Melo, Francisco S. and Paiva, Ana and Kragic, Danica},
+  booktitle = 	 {Proceedings of the 39th International Conference on Machine Learning},
+  pages = 	 {17782--17800},
+  year = 	 {2022},
+  annotation={*Shared first-authorship},
   selected={true},
-  inspirehep_id = {3255}
+  abstract={Learning representations of multimodal data that are both informative and robust to missing modalities at test time remains a challenging problem due to the inherent heterogeneity of data obtained from different channels. To address it, we present a novel Geometric Multimodal Contrastive (GMC) representation learning method consisting of two main components: i) a two-level architecture consisting of modality-specific base encoders, allowing to process an arbitrary number of modalities to an intermediate representation of fixed dimensionality, and a shared projection head, mapping the intermediate representations to a latent representation space; ii) a multimodal contrastive loss function that encourages the geometric alignment of the learned representations. We experimentally demonstrate that GMC representations are semantically rich and achieve state-of-the-art performance with missing modality information on three different learning problems including prediction and reinforcement learning tasks.},
+  html={https://arxiv.org/abs/2202.03390},
+  pdf={https://arxiv.org/pdf/2202.03390},
+  url={https://arxiv.org/abs/2202.03390},
+  preview={gmc_2022.png},
+  code={https://github.com/miguelsvasco/gmc},
 }
 
-@article{einstein1905molekularkinetischen,
-  title={{\"U}ber die von der molekularkinetischen Theorie der W{\"a}rme geforderte Bewegung von in ruhenden Fl{\"u}ssigkeiten suspendierten Teilchen},
-  author={Einstein, A.},
-  journal={Annalen der physik},
-  volume={322},
-  number={8},
-  pages={549--560},
-  year={1905},
-  publisher={Wiley Online Library}
+
+@inproceedings{vasco2022sense,
+  abbr={AAMAS},
+  title={How to Sense the World: Leveraging Hierarchy in Multimodal Perception for Robust Reinforcement Learning Agents},
+  author={Vasco, Miguel and Yin, Hang and Melo, Francisco S. and Paiva, Ana},
+  booktitle={21st International Conference on Autonomous Agents and MultiAgent Systems (AAMAS)},
+  pages={1301--1309},
+  year={2022},
+  selected={true},
+  abstract={This work addresses the problem of sensing the world: how to learn a multimodal representation of a reinforcement learning agent's environment that allows the execution of tasks under incomplete perceptual conditions. To address such problem, we argue for hierarchy in the design of representation models and contribute with a novel multimodal representation model, MUSE. The proposed model learns hierarchical representations: low-level modality-specific representations, encoded from raw observation data, and a high-level multimodal representation, encoding joint-modality information to allow robust state estimation. We employ MUSE as the sensory representation model of deep reinforcement learning agents provided with multimodal observations in Atari games. We perform a comparative study over different designs of reinforcement learning agents, showing that MUSE allows agents to perform tasks under incomplete perceptual experience with minimal performance loss. Finally, we evaluate the performance of MUSE in literature-standard multimodal scenarios with higher number and more complex modalities, showing that it outperforms state-of-the-art multimodal variational autoencoders in single and cross-modality generation.},
+  html={https://arxiv.org/abs/2110.03608},
+  pdf={https://ifaamas.org/Proceedings/aamas2022/pdfs/p1301.pdf},
+  url={https://arxiv.org/abs/2110.03608},
+  preview={aamas_2022.gif},
+  code={https://github.com/miguelsvasco/muse},
 }
 
-@article{einstein1905movement,
-  abbr={Ann. Phys.},
-  title={Un the movement of small particles suspended in statiunary liquids required by the molecular-kinetic theory 0f heat},
-  author={Einstein, A.},
-  journal={Ann. Phys.},
-  volume={17},
-  pages={549--560},
-  year={1905}
+@article{vasco2022leveraging,
+abbr={Neural Networks},
+  title={Leveraging hierarchy in multimodal generative models for effective cross-modality inference},
+  author={Vasco, Miguel and Yin, Hang and Melo, Francisco S. and Paiva, Ana},
+  journal={Neural Networks (2021 Special Issue on AI and Brain Science: Brain-inspired AI)},
+  volume={146},
+  pages={238--255},
+  year={2022},
+  publisher={Elsevier},
+  selected={true},
+  abstract={This work addresses the problem of sensing the world: how to learn a multimodal representation of a reinforcement learning agent's environment that allows the execution of tasks under incomplete perceptual conditions. To address such problem, we argue for hierarchy in the design of representation models and contribute with a novel multimodal representation model, MUSE. The proposed model learns hierarchical representations: low-level modality-specific representations, encoded from raw observation data, and a high-level multimodal representation, encoding joint-modality information to allow robust state estimation. We employ MUSE as the sensory representation model of deep reinforcement learning agents provided with multimodal observations in Atari games. We perform a comparative study over different designs of reinforcement learning agents, showing that MUSE allows agents to perform tasks under incomplete perceptual experience with minimal performance loss. Finally, we evaluate the performance of MUSE in literature-standard multimodal scenarios with higher number and more complex modalities, showing that it outperforms state-of-the-art multimodal variational autoencoders in single and cross-modality generation.},
+  html={https://www.sciencedirect.com/science/article/pii/S0893608021004470},
+  url={https://www.sciencedirect.com/science/article/pii/S0893608021004470},
+  preview={nn_2022.png},
+  code={https://github.com/miguelsvasco/nexus_pytorch},
 }
 
-@article{einstein1905electrodynamics,
-  title={On the electrodynamics of moving bodies},
-  author={Einstein, A.},
-  year={1905}
+@inproceedings{ildefonso2021exploiting,
+  title={Exploiting Symmetry in Human Robot-Assisted Dressing Using Reinforcement Learning},
+  author={Ildefonso, Pedro and Rem{\'e}dios, Pedro and Silva, Rui and Vasco, Miguel and Melo, Francisco S. and Paiva, Ana and Veloso, Manuela},
+  author+an = {1=first; 2=first; 4=highlight},
+  booktitle={EPIA Conference on Artificial Intelligence},
+  pages={405--417},
+  year={2021},
+  organization={Springer},
+  abstract={In this work, we address the problem of symmetry transfer in human-robot collaborative tasks, i.e., how certain actions can be extended to their symmetrical by exploiting symmetries in their execution. We contribute an approach capable of considering the symmetry inherent to a given task, such as the human or robot’s lateral symmetry, abstracting them from the robot’s decision process. We instantiate our approach in a robot-assisted backpack dressing scenario. A two-manipulator Baxter robot assists a human user in sequentially putting on both straps of a backpack. We evaluate the proposed symmetry-transfer approach in two complementary perspectives: the quality of the agent’s learned policy in a simulated environment and the efficiency of the complete system in a real-life scenario with a robotic platform. The results show that our approach allows the extension of the execution of single-side trained collaborative tasks to their symmetrical with no additional training and minimal performance loss.},
+  html={https://link.springer.com/chapter/10.1007/978-3-030-86230-5_32},
+  url={https://link.springer.com/chapter/10.1007/978-3-030-86230-5_32},
+  preview={epia_2021.png},
 }
 
-@Article{einstein1905photoelectriceffect,
-  bibtex_show={true},
-  abbr={Ann. Phys.},
-  title="{{\"U}ber einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt}",
-  author={Albert Einstein},
-  abstract={This is the abstract text.},
-  journal={Ann. Phys.},
-  volume={322},
-  number={6},
-  pages={132--148},
-  year={1905},
-  doi={10.1002/andp.19053220607},
-  award={Albert Einstein receveid the **Nobel Prize in Physics** 1921 *for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect*},
-  award_name={Nobel Prize}
+@inproceedings{silva2020playing,
+  abbr={AAMAS},
+  title={Playing Games in the Dark: An Approach for Cross-Modality Transfer in Reinforcement Learning},
+  author={Silva, Rui and Vasco, Miguel and Melo, Francisco S. and Paiva, Ana and Veloso, Manuela},
+  booktitle={19th International Conference on Autonomous Agents and MultiAgent Systems (AAMAS)},
+  pages={1260--1268},
+  year={2020},
+  selected={true},
+  abstract={In this work we explore the use of latent representations obtained from multiple input sensory modalities (such as images or sounds) in allowing an agent to learn and exploit policies over different subsets of input modalities. We propose a three-stage architecture that allows a reinforcement learning agent trained over a given sensory modality, to execute its task on a different sensory modality-for example, learning a visual policy over image inputs, and then execute such policy when only sound inputs are available. We show that the generalized policies achieve better out-of-the-box performance when compared to different baselines. Moreover, we show this holds in different OpenAI gym and video game environments, even when using different multimodal generative models and reinforcement learning algorithms.},
+  html={https://arxiv.org/abs/1911.12851},
+  url={https://arxiv.org/abs/1911.12851},
+  pdf={https://aamas.csc.liv.ac.uk/Proceedings/aamas2020/pdfs/p1260.pdf},
+  preview={gamesdark_2020.png},
+  code={https://github.com/miguelsvasco/multimodal-atari-games},
 }
 
-@book{przibram1967letters,
-  bibtex_show={true},
-  title={Letters on wave mechanics},
-  author={Einstein, Albert and Schrödinger, Erwin and Planck, Max and Lorentz, Hendrik Antoon and Przibram, Karl},
-  year={1967},
-  publisher={Vision},
-  preview={wave-mechanics.gif},
-  abbr={Vision}
+
+@inproceedings{tulli2020explainable,
+  title={Explainable Agency by Revealing Suboptimality in Child-Robot Learning Scenarios},
+  author={Tulli, Silvia and Couto, Marta and Vasco, Miguel and Yadollahi, Elmira and Melo, Francisco S. and Paiva, Ana},
+  booktitle={International Conference on Social Robotics (ICSR)},
+  pages={23--35},
+  year={2020},
+  organization={Springer},
+  award={Best Student Paper Award},
+  award_name={Best Student Paper Award},
+  abstract={Revealing the internal workings of a robot can help a human better understand the robot’s behaviors. How to reveal such workings, e.g., via explanation generation, remains a significant challenge. This gets even more complex when these explanations are targeted towards children. Therefore, we propose a search-based approach to generate contrastive explanations using optimal and sub-optimal plans and implement it in a scenario for children. In the application scenario, the child and the robot learn together how to play a zero-sum game that requires logical and mathematical thinking. We report results around our explanation generation system that was successfully deployed among seven-year-old children. Our results show trends that the generated explanations were able to positively affect the children’s perceived difficulty in learning the zero-sum game.},
+  html={https://link.springer.com/chapter/10.1007/978-3-030-62056-1_3},
+  url={https://link.springer.com/chapter/10.1007/978-3-030-62056-1_3},
+  preview={icsr_2020.png},
 }
+
+@inproceedings{vasco2020multimodal,
+  abbr={AAMAS},
+  title={Multimodal Representation Learning for Robotic Cross-Modality Policy Transfer},
+  author={Vasco, Miguel},
+  author+an = {1=highlight},
+  booktitle={Proceedings of the 19th International Conference on Autonomous Agents and MultiAgent Systems (AAMAS)},
+  pages={2225--2227},
+  year={2020},
+  note={Doctoral Consortium of AAMAS 2020},
+  pdf={https://www.ifaamas.org/Proceedings/aamas2020/pdfs/p2225.pdf},
+  abstract={In this thesis, we aim at endowing robots with mechanisms to learn
+multimodal representations from sensory data and to allow them to
+execute tasks considering different subsets of available perceptions.
+We address the learning of these representations from supervised,
+unsupervised and reinforcement learning methodologies in the
+context of virtual agents and robots. We hope that, by achieving
+the proposed goals, the contributions of this thesis might prompt
+future research on applications of multimodal representations in
+robots and other artificial agents.},
+preview={aamas_2020.png},
+video={https://www.youtube.com/watch?v=3AzyqUQijjg},
+}
+
+@article{vasco2020mhvae,
+  title={MHVAE: a Human-inspired Deep Hierarchical Generative Model for Multimodal Representation Learning},
+  author={Vasco, Miguel and Melo, Francisco S. and Paiva, Ana},
+  journal={arXiv preprint arXiv:2006.02991},
+  year={2020},
+  abstract={Humans are able to create rich representations of their external reality. Their internal representations allow for cross-modality inference, where available perceptions can induce the perceptual experience of missing input modalities. In this paper, we contribute the Multimodal Hierarchical Variational Auto-encoder (MHVAE), a hierarchical multimodal generative model for representation learning. Inspired by human cognitive models, the MHVAE is able to learn modality-specific distributions, of an arbitrary number of modalities, and a joint-modality distribution, responsible for cross-modality inference. We formally derive the model's evidence lower bound and propose a novel methodology to approximate the joint-modality posterior based on modality-specific representation dropout. We evaluate the MHVAE on standard multimodal datasets. Our model performs on par with other state-of-the-art generative models regarding joint-modality reconstruction from arbitrary input modalities and cross-modality inference.},
+  html={https://arxiv.org/abs/2006.02991},
+  url={https://arxiv.org/abs/2006.02991},
+  pdf={https://arxiv.org/pdf/2006.02991},
+  preview={mhvae_2020.png},
+}
+
+@inproceedings{vasco2019learning,
+  title={Learning multimodal representations for sample-efficient recognition of human actions},
+  author={Vasco, Miguel and Melo, Francisco S. and de Matos, David Martins and Paiva, Ana and Inamura, Tetsunari},
+  author+an = {1=highlight},
+  booktitle={IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  pages={4288--4293},
+  year={2019},
+  organization={IEEE},
+  abstract={Humans interact in rich and diverse ways with the environment. However, the representation of such behavior by artificial agents is often limited. In this work we present motion concepts, a novel multimodal representation of human actions in a household environment. A motion concept encompasses a probabilistic description of the kinematics of the action along with its contextual background, namely the location and the objects held during the performance. We introduce a novel algorithm which learns and recognizes motion concepts from action demonstrations, named Online Motion Concept Learning (OMCL). The algorithm is evaluated on a virtual-reality household environment with the presence of a human avatar. OMCL outperforms standard motion recognition algorithms on an one-shot recognition task, attesting to its potential for sample-efficient recognition of human actions.},
+  html={https://ieeexplore.ieee.org/abstract/document/8967635},
+  url={https://ieeexplore.ieee.org/abstract/document/8967635},
+  preview={iros_2019.png},
+}
+
+@article{melo2019project,
+  title={Project INSIDE: towards autonomous semi-unstructured human--robot social interaction in autism therapy},
+  author={Melo, Francisco S. and Sardinha, Alberto and Belo, David and Couto, Marta and Faria, Miguel and Farias, Anabela and Gamboa, Hugo and Jesus, C{\'a}tia and Kinarullathil, Mithun and Lima, Pedro and Luz, Luís and Mateus, André and Melo, Isabel and Moreno, Plinio and Osório, Daniel and Paiva, Ana and Pimentel, Jhielson and Rodrigues, João and Sequeira, Pedro and Solera-Ureña, Rubén and Vasco, Miguel and Veloso, Manuela and Ventura, Rodrigo},
+  author+an = {21=highlight},
+  journal={Artificial intelligence in medicine},
+  volume={96},
+  pages={198--216},
+  year={2019},
+  publisher={Elsevier},
+  abstract={This paper describes the INSIDE system, a networked robot system designed to allow the use of mobile robots as active players in the therapy of children with autism spectrum disorders (ASD). While a significant volume of work has explored the impact of robots in ASD therapy, most such work comprises remotely operated robots and/or well-structured interaction dynamics. In contrast, the INSIDE system allows for complex, semi-unstructured interaction in ASD therapy while featuring a fully autonomous robot. In this paper we describe the hardware and software infrastructure that supports such rich form of interaction, as well as the design methodology that guided the development of the INSIDE system. We also present some results on the use of our system both in pilot and in a long-term study comprising multiple therapy sessions with children at Hospital Garcia de Orta, in Portugal, highlighting the robustness and autonomy of the system as a whole.},
+  html={https://www.sciencedirect.com/science/article/pii/S0933365717305997},
+  url={https://www.sciencedirect.com/science/article/pii/S0933365717305997},
+  preview={inside_2019.png},
+}
+
+@inproceedings{vasco2019online,
+  title={Online Motion Concept Learning: A Novel Algorithm for Sample-Efficient Learning and Recognition of Human Actions},
+  author={Vasco, Miguel and Melo, Francisco S. and Martins de Matos, David and Paiva, Ana and Inamura, Tetsunari},
+  booktitle={Proceedings of the 18th International Conference on Autonomous Agents and MultiAgent Systems (AAMAS)},
+  pages={2244--2246},
+  year={2019},
+  pdf={https://www.ifaamas.org/Proceedings/aamas2019/pdfs/p2244.pdf},
+  preview={aamas_2019.png},
+
+}
+
+@article{vasco20173d,
+  title={3D map distribution of metallic nanoparticles in whole cells using MeV ion microscopy},
+  author={Vasco, Miguel and Alves, Luís Cerqueira and Corregidor, Victoria and Correia, Daniel and Godinho, Cláudia P. and Isabel Sá-Correia and Bettiol, Andrew and Watt, Frank and Pinheiro, Teresa},
+  author+an = {1=highlight},
+  journal={Journal of Microscopy},
+  volume={267},
+  number={2},
+  pages={227--236},
+  year={2017},
+  publisher={Wiley Online Library},
+  html={https://pubmed.ncbi.nlm.nih.gov/28394445/},
+  url={https://pubmed.ncbi.nlm.nih.gov/28394445/},
+  abstract={In this work, a new tool was developed, the MORIA program that readily translates Rutherford backscattering spectrometry (RBS) output data into visual information, creating a display of the distribution of elements in a true three-dimensional (3D) environment. The program methodology is illustrated with the analysis of yeast Saccharomyces cerevisiae cells, exposed to copper oxide nanoparticles (CuO-NP) and HeLa cells in the presence of gold nanoparticles (Au-NP), using different beam species, energies and nuclear microscopy systems. Results demonstrate that for both cell types, the NP internalization can be clearly perceived. The 3D models of the distribution of CuO-NP in S. cerevisiae cells indicate the nonuniform distribution of NP in the cellular environment and a relevant confinement of CuO-NP to the cell wall. This suggests the impenetrability of certain cellular organelles or compartments for NP. By contrast, using a high-resolution ion beam system, discretized agglomerates of Au-NP were visualized inside the HeLa cell. This is consistent with the mechanism of entry of these NPs in the cellular space by endocytosis enclosed in endosomal vesicles. This approach shows RBS to be a powerful imaging technique assigning to nuclear microscopy unparalleled potential to assess nanoparticle distribution inside the cellular volume.},
+  preview={micro_2017.png},
+}
+
+
