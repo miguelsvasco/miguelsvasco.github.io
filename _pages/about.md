@@ -2,24 +2,21 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: <em>{mi-ghel v-ah-s-co}</em>
 
 profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
-  more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+  more_info:
 
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I am a Postdoctoral fellow at the Division of <a href="https://www.kth.se/is/rpl">Robotics, Perception and Learning</a>, at <a href="https://www.kth.se/en">KTH Royal Institute of Technology</a>, advised by <a href="https://www.csc.kth.se/~danik/">Danica Kragic</a>. My goal is to build the next generation of inteligent agents: <em>multimodal</em> (able to process different modalities), <em>expressive</em> (able to generate multiple types of behavior), <em>adaptable</em> (to human preferences) and <em>superhuman</em> (able to outpeform human capabilties).
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+I am a former intern at <a href="https://ai.sony/">Sony AI</a> and <a href="https://sites.google.com/view/rsspioneers2021/home">RSS Pioneer</a>. I am also the co-creator of the <a href="https://talking-robotics.github.io/">Talking Robotics</a> podcast.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+I have a PhD in Computer Science from <a href="https://tecnico.ulisboa.pt/en/">Tecnico, University of Lisbon</a>, where I was supervised by <a href="https://ana-paiva.com/">Ana Paiva</a> and <a href="https://gaips.inesc-id.pt/~fmelo/">Francisco S. Melo</a>. I have an MSc and BSc in Engineering Physics from <a href="https://tecnico.ulisboa.pt/en/">Tecnico, University of Lisbon</a>.

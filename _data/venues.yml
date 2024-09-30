@@ -1,9 +1,15 @@
-"AJP":
-  url: https://aapt.scitation.org/journal/ajp
+"AAMAS":
+  url: https://aamas2025.org
   color: "#00369f"
 
-"PhysRev":
-  url: https://journals.aps.org/
+"NeurIPS":
+  url: https://neurips.cc
+  color: "#9f0036"
 
-"Vision":
+"RLC":
+  url: https://rl-conference.cc
   color: "#009f36"
+
+"ICML":
+  url: https://icml.cc
+  color: "#9f9f00"
