@@ -1,6 +1,35 @@
 ---
 ---
 
+@inproceedings{
+rajabi2024amplified,
+title={Amplified Early Stopping Bias: Overestimated Performance with Deep Learning},
+author={Rajabi, Nona and Ribeiro, Antonio H. and Vasco, Miguel and Kragic, Danica},
+booktitle={NeurIPS 2024 Workshop on Scientific Methods for Understanding Deep Learning},
+year={2024},
+url={https://openreview.net/forum?id=wbUh4GL3c2},
+html={https://openreview.net/forum?id=wbUh4GL3c2},
+abstract={Cross-validation is commonly used to estimate machine learning model performance on new samples. However, using it for both hyperparameter selection and error estimation can lead to overestimating model performance, especially with extensive hyperparameter searches that overly tailor models to validation data. We demonstrate that deep learning further amplifies this bias, with even minor model adjustments causing significant overestimation. Our extensive experiments on simulated and real data focus on the bias from early stopping during cross-validation. We find that overestimation intensifies with network depth and is especially severe in small datasets, which are common in physiological signal processing applications. Selecting the early stopping point during cross-validation can result in ROC-AUC estimates exceeding 90% on random data, and this effect persists across various sample sizes, architectures, and network sizes.},
+note={},
+selected={false},
+preview={neurips_ws_bias.png},
+}
+
+@article{reichlin2024reducing,
+title={Reducing Variance in Meta-Learning via Laplace Approximation for Regression Tasks},
+author={Alfredo Reichlin and Gustaf Tegn{\'e}r and Miguel Vasco and Hang Yin and M{\r{a}}rten Bj{\"o}rkman and Danica Kragic},
+journal={Transactions on Machine Learning Research},
+issn={2835-8856},
+year={2024},
+url={https://openreview.net/forum?id=Uc2mqNPkEq},
+html={https://openreview.net/forum?id=Uc2mqNPkEq},
+note={},
+selected={false},
+code={https://github.com/gtegner/lava},
+abstract={Given a finite set of sample points, meta-learning algorithms aim to learn an optimal adaptation strategy for new, unseen tasks. Often, this data can be ambiguous as it might belong to different tasks concurrently. This is particularly the case in meta-regression tasks. In such cases, the estimated adaptation strategy is subject to high variance due to the limited amount of support data for each task, which often leads to sub-optimal generalization performance. In this work, we address the problem of variance reduction in gradient-based meta-learning and formalize the class of problems prone to this, a condition we refer to as \emph{task overlap}. Specifically, we propose a novel approach that reduces the variance of the gradient estimate by weighing each support point individually by the variance of its posterior over the parameters. To estimate the posterior, we utilize the Laplace approximation, which allows us to express the variance in terms of the curvature of the loss landscape of our meta-learner. Experimental results demonstrate the effectiveness of the proposed method and highlight the importance of variance reduction in meta-learning.},
+preview={tmlr_lava.png},
+}
+
 @inproceedings{taleb2024can,
 abbr={NeurIPS},
 title={Can Transformers Smell Like Humans?},
