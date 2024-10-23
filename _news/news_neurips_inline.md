@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Two Papers Accepted at NeurIPS 2024 (**Spotlight, Poster**)
+Two Papers Accepted at NeurIPS 2024 (**Spotlight, Poster**). Congrats to Farzaneh and Bernardo!
