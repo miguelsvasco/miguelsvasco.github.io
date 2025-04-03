@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our paper "A Super-human Vision-based Reinforcement Learning Agent for Autonomous Racing in Gran Turismo" won an **Outstanding Paper Award at RLC 2024**!
+Our paper on <a href="https://arxiv.org/abs/2406.12563v1">super-human autonomous racing</a> won an **Outstanding Paper Award at RLC 2024**!

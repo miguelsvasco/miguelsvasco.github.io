@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Two Papers Accepted at NeurIPS 2024 (**Spotlight, Poster**).
+Two Papers Accepted at NeurIPS 2024! Our first work explores foundation models of chemical data for human olfaction (**Spotlight**, <a href="https://arxiv.org/abs/2410.01476">(link)</a>). Our second work explores learning decision-making algorithms that scale to arbitrarily large observation spaces (**Poster**, <a href="https://arxiv.org/abs/2402.15393">(link)</a>).

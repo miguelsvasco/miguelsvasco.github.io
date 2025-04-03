@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Paper accepted at TMLR and workshop paper in SciForDL at NeurIPS!
+Our work on reducing variance in meta-learning was accepted at TMLR <a href="https://arxiv.org/abs/2410.01476">(link)</a>!
