@@ -6,4 +6,4 @@ inline: true
 related_posts: false
 ---
 
-New preprints on the alignment of image models for visual decoding from the brain ([link](https://arxiv.org/abs/2502.03081)) and on a framework for the co-existence between humans and artificial agents ([link](https://arxiv.org/abs/2502.04809)).
+New preprints on the alignment of image models for visual decoding from the brain <a href="https://arxiv.org/abs/2502.03081/">(link)</a> and on a framework for the long-term co-existence between humans and artificial agents <a href="https://arxiv.org/abs/2502.04809/">(link)</a>.
