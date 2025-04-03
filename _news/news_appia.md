@@ -6,4 +6,4 @@ inline: true
 related_posts: false
 ---
 
-Won the “**Best PhD Thesis in AI in Portugal** (2023)”, awarded by the Portuguese Association for Artificial Intelligence (APPIA).
+Won the <a href="https://www.appia.pt/2024/10/07/vencedor-do-concurso-melhor-tese-de-doutoramento/">Best PhD Thesis in AI in Portugal</a> award by the Portuguese Association for Artificial Intelligence (APPIA).

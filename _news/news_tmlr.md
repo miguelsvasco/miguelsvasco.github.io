@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Paper accepted at TMLR and workshop paper in SciForDL at NeurIPS! Congrats to Alfredo and Nona!
+Paper accepted at TMLR and workshop paper in SciForDL at NeurIPS!
