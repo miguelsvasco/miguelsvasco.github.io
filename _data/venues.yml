@@ -1,19 +1,27 @@
 "AAMAS":
   url: https://aamas2025.org
-  color: "#00369f"
+  color: "#AEC6CF"  # Pastel Blue
 
 "NeurIPS":
   url: https://neurips.cc
-  color: "#9f0036"
+  color: "#FFB7C5"  # Pastel Pink
 
 "RLC":
   url: https://rl-conference.cc
-  color: "#009f36"
+  color: "#B8E2C8"  # Pastel Green
 
 "ICML":
   url: https://icml.cc
-  color: "#9f9f00"
+  color: "#FFDBA4"  # Pastel Peach
 
 "TMLR":
-  url: https://icml.cc
-  color: "#007f9f"
+  url: https://jmlr.org/tmlr/
+  color: "#C3B1E1"  # Pastel Lavender
+
+"ICRA":
+  url: https://2025.ieee-icra.org/
+  color: "#FDFD96"  # Pastel Yellow
+
+"arXiv":
+  url: https://arxiv.org/
+  color: "#D3D3D3"  # Pastel Gray
