@@ -1,27 +1,27 @@
 "AAMAS":
   url: https://aamas2025.org
-  color: "#AEC6CF"  # Pastel Blue
+  color: "#739FBF"  # Muted Blue
 
 "NeurIPS":
   url: https://neurips.cc
-  color: "#FFB7C5"  # Pastel Pink
+  color: "#D28B9B"  # Muted Rose
 
 "RLC":
   url: https://rl-conference.cc
-  color: "#B8E2C8"  # Pastel Green
+  color: "#76AB92"  # Muted Sage
 
 "ICML":
   url: https://icml.cc
-  color: "#FFDBA4"  # Pastel Peach
+  color: "#D7A578"  # Muted Peach
 
 "TMLR":
   url: https://jmlr.org/tmlr/
-  color: "#C3B1E1"  # Pastel Lavender
+  color: "#A58CBC"  # Muted Lavender
 
 "ICRA":
   url: https://2025.ieee-icra.org/
-  color: "#FDFD96"  # Pastel Yellow
+  color: "#D1C173"  # Muted Mustard
 
 "arXiv":
   url: https://arxiv.org/
-  color: "#D3D3D3"  # Pastel Gray
+  color: "#A3A3A3"  # Muted Gray
