@@ -25,3 +25,7 @@
 "arXiv":
   url: https://arxiv.org/
   color: "#A3A3A3"  # Muted Gray
+
+"Neural Networks":
+  url: https://www.sciencedirect.com/journal/neural-networks
+  color: "#8BA8A9"  # Muted Teal
