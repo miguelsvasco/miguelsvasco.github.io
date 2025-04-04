@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our work on reducing variance in meta-learning was accepted at TMLR <a href="https://arxiv.org/abs/2410.01476">(link)</a>!
+Our work on reducing variance in meta-learning was accepted at **TMLR** <a href="https://arxiv.org/abs/2410.01476">(link)</a>!
