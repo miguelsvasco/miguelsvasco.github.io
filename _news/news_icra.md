@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our work on sample-efficient adaptation of reward models for preference-based RL has been accepted at **ICRA** <a href="https://arxiv.org/abs/2504.10002">(link)</a>!
+Our work on sample-efficient adaptation of robot behavior with preference-based RL has been accepted at **ICRA** <a href="https://arxiv.org/abs/2504.10002">(link)</a>!
