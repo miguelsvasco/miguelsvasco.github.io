@@ -6,7 +6,7 @@ subtitle: miguelsv [at] kth.se
 
 profile:
   align: right
-  image: prof_pic_2025.jpg
+  image: prof_pic_2026.png
   image_circular: false # crops the image to make it circular
   more_info:
 
