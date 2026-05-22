@@ -12,20 +12,20 @@ window.MV_DATA = {
   ],
 
   bioShort:
-    "I build multimodal agents that co-exist with humans in real and virtual environments — " +
-    "leveraging reinforcement learning to design agents that act effectively and adapt to " +
-    "changes in perception, environment, and human preferences.",
+    "I build artificial agents that co-exist with humans, in physical environments and virtual ones. " +
+    "My research combines reinforcement learning and multimodal learning to design agents that act " +
+    "effectively, adapt over time, and align with human perception and preferences.",
 
   bioLong: [
     "Hi, I'm Miguel, a Postdoctoral Researcher at KTH Royal Institute of Technology " +
-      "(Stockholm, Sweden), advised by Danica Kragic. My long-term goal is to build " +
-      "multimodal artificial agents that naturally co-exist with humans in real and virtual " +
-      "environments.",
-    "To achieve this, I leverage reinforcement learning to design agents that act effectively " +
-      "and adapt to changes in perception, their environment, and human preferences.",
-    "I completed my Ph.D. at Instituto Superior Técnico (Lisbon, Portugal), where my work on " +
-      "multimodal reinforcement learning was awarded the Best PhD Thesis in AI in Portugal. " +
-      "Previously, I was an RSS Pioneer and a research intern at Sony AI.",
+      "(Stockholm), working with Danica Kragic. My long-term goal is to build artificial " +
+      "agents that work with and for humans over time, across physical environments and virtual worlds like video games.",
+    "I completed my Ph.D. Summa Cum Laude at Instituto Superior Técnico (Lisbon), where my " +
+      "thesis on multimodal reinforcement learning was awarded the Best PhD Thesis in AI in " +
+      "Portugal by APPIA. Along the way, I spent time as a visiting researcher at the National " +
+      "Institute of Informatics in Tokyo and as a research intern at Sony AI, where we worked " +
+      "on autonomous racing in Gran Turismo 7.",
+    "Outside the lab, I like cats, anime, and making bad music.",
   ],
 
   contactNote: "",
