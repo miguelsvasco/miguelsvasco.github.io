@@ -3,7 +3,7 @@ window.MV_DATA = {
   role: "Postdoctoral Researcher",
   org: "KTH Royal Institute of Technology",
   location: "Stockholm, Sweden",
-  email: "miguelsv@kth.se",
+  email: "miguelsv[at]kth.se",
   social: [
     { label: "Scholar",  href: "https://scholar.google.com/citations?user=Of2hDmMAAAAJ" },
     { label: "GitHub",   href: "https://github.com/miguelsvasco" },
@@ -28,22 +28,22 @@ window.MV_DATA = {
       "Previously, I was an RSS Pioneer and a research intern at Sony AI.",
   ],
 
-  contactNote: "I'm currently on the job market for industry positions — feel free to reach out.",
+  contactNote: "",
 
   publications: [
     {
-      year: "2025",
-      title: "Human-Aligned Image Models Improve Visual Decoding from the Brain",
-      venue: "ICML 2025",
-      authors: "N. Rajabi, A. H. Ribeiro†, M. Vasco†, F. Taleb, M. Björkman, D. Kragic",
-      href: "https://arxiv.org/abs/2502.03081",
+      year: "2026",
+      title: "Geometry of Uncertainty: Learning Metric Spaces for Multimodal State Estimation in RL",
+      venue: "ICLR 2026",
+      authors: "A. Reichlin, A. Pacciarelli, D. Kragic, M. Vasco",
+      href: "https://arxiv.org/abs/2602.12087",
     },
     {
       year: "2025",
-      title: "Humans Co-exist, So Must Embodied Artificial Agents",
-      venue: "arXiv · 2502.04809",
-      authors: "H. Kuehn†, J. La Delfa†, M. Vasco†, D. Kragic, I. Leite",
-      href: "https://arxiv.org/abs/2502.04809",
+      title: "Centralized Training with Hybrid Execution in Multi-Agent Reinforcement Learning via Predictive Observation Imputation",
+      venue: "Artificial Intelligence 2025",
+      authors: "P. P. Santos, D. S. Carvalho, M. Vasco, A. Sardinha, P. A. Santos, A. Paiva, F. S. Melo",
+      href: "files/ai_paper.pdf",
     },
     {
       year: "2025",
@@ -51,14 +51,6 @@ window.MV_DATA = {
       venue: "ICRA 2025",
       authors: "D. Marta†, S. Holk†, M. Vasco, J. Lundell, T. Homberger, F. L. Busch, O. Andersson, D. Kragic, I. Leite",
       href: "https://arxiv.org/abs/2504.10002",
-    },
-    {
-      year: "2024",
-      title: "Can Transformers Smell Like Humans?",
-      venue: "NeurIPS 2024",
-      authors: "F. Taleb, M. Vasco, A. H. Ribeiro, M. Björkman, D. Kragic",
-      award: "Spotlight",
-      href: "https://openreview.net/forum?id=3f8i9GlBzu",
     },
     {
       year: "2024",
@@ -93,6 +85,14 @@ window.MV_DATA = {
 
   // HTML is supported in body (links, bold, etc.)
   news: [
+    {
+      date: "2026 · May",
+      body: "Our work on metric spaces for multimodal state estimation in RL has been accepted at <strong>ICLR 2026</strong> <a href=\"https://arxiv.org/abs/2602.12087\" target=\"_blank\">↗</a>.",
+    },
+    {
+      date: "2026 · May",
+      body: "Our work on centralized training with hybrid execution in multi-agent RL has been accepted in the <strong>Artificial Intelligence</strong> journal <a href=\"files/ai_paper.pdf\" target=\"_blank\">↗</a>.",
+    },
     {
       date: "2025 · May",
       body: "New preprint on a framework for the long-term <strong>co-existence</strong> between humans and artificial agents <a href=\"https://arxiv.org/abs/2502.04809/\" target=\"_blank\">↗</a>.",
