@@ -19,13 +19,15 @@ window.MV_DATA = {
   bioLong: [
     "Hi, I'm Miguel, a Postdoctoral Researcher at KTH Royal Institute of Technology " +
       "(Stockholm), working with Danica Kragic. My long-term goal is to build artificial " +
-      "agents that work with and for humans over time, across physical environments and virtual worlds like video games.",
+      "agents that work with and for humans over time, across physical environments and " +
+      "virtual worlds like video games.",
     "I completed my Ph.D. Summa Cum Laude at Instituto Superior Técnico (Lisbon), where my " +
-      "thesis on multimodal reinforcement learning was awarded the Best PhD Thesis in AI in " +
-      "Portugal by APPIA. Along the way, I spent time as a visiting researcher at the National " +
-      "Institute of Informatics in Tokyo and as a research intern at Sony AI, where we worked " +
-      "on autonomous racing in Gran Turismo 7.",
-    "Outside the lab, I like cats, anime, and making bad music.",
+      "thesis was awarded the Best PhD Thesis in AI in Portugal by APPIA. I was also selected " +
+      "as an RSS Pioneer in 2021.",
+    "Along the way, I spent time as a visiting researcher at the National Institute of " +
+      "Informatics in Tokyo and as a research intern at Sony AI, where we worked on autonomous " +
+      "racing in Gran Turismo 7, which received an Outstanding Paper Award at RLC 2024.",
+    "Outside the lab, I like cats, anime, and making bad music. My favorite video game is Sonic Adventure 2 on the Sega Dreamcast.",
   ],
 
   contactNote: "",
@@ -86,16 +88,12 @@ window.MV_DATA = {
   // HTML is supported in body (links, bold, etc.)
   news: [
     {
-      date: "2026 · May",
-      body: "Our work on metric spaces for multimodal state estimation in RL has been accepted at <strong>ICLR 2026</strong> <a href=\"https://arxiv.org/abs/2602.12087\" target=\"_blank\">↗</a>.",
+      date: "2026 · Jan",
+      body: "Our work on metric spaces for multimodal state estimation in RL has been accepted at <strong>ICLR 2026</strong> <a href=\"https://openreview.net/forum?id=rw0vvcHZPe\" target=\"_blank\">↗</a>.",
     },
     {
-      date: "2026 · May",
+      date: "2025 · Sep",
       body: "Our work on centralized training with hybrid execution in multi-agent RL has been accepted in the <strong>Artificial Intelligence</strong> journal <a href=\"files/ai_paper.pdf\" target=\"_blank\">↗</a>.",
-    },
-    {
-      date: "2025 · May",
-      body: "New preprint on a framework for the long-term <strong>co-existence</strong> between humans and artificial agents <a href=\"https://arxiv.org/abs/2502.04809/\" target=\"_blank\">↗</a>.",
     },
     {
       date: "2025 · May",
