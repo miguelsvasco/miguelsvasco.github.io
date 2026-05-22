@@ -23,21 +23,49 @@
 
   /* ── Responsive ─────────────────────────────────────────────── */
   @media (max-width: 800px) {
-    /* Hero: stack vertically, photo first then text */
+    /* ── Side padding: override the inline padX (up to 96px on comfy).
+       !important beats inline styles, so left/right get clamped to 20px
+       while the component's vertical padding is left untouched. ── */
+    .site-header,
+    .site-hero-grid,
+    .site-section,
+    .site-footer {
+      padding-left:  20px !important;
+      padding-right: 20px !important;
+    }
+
+    /* Hero: stack vertically, photo centered above text */
     .site-hero-grid {
       grid-template-columns: 1fr !important;
-      padding-top: 64px !important;
-      padding-bottom: 56px !important;
-      gap: 32px !important;
+      padding-top: 56px !important;
+      padding-bottom: 48px !important;
+      gap: 28px !important;
+      justify-items: center;
     }
+    /* Photo: centered, slightly smaller */
     .site-hero-photo {
-      width: 180px !important;
-      height: 180px !important;
+      width: 160px !important;
+      height: 160px !important;
       order: -1;
     }
-    /* About: two-column prose → single column on mobile */
-    .site-about-cols { columns: 1 !important; }
-    /* Publications: stack cleanly — year small above, venue below authors */
+    /* Text block: full width, centered on mobile */
+    .hero-text-block {
+      width: 100%;
+      text-align: left;
+    }
+    /* Name: smaller clamp on narrow screens */
+    .hero-title { font-size: clamp(40px, 12vw, 56px) !important; }
+    /* Lede: lock to readable size */
+    .hero-lede  { font-size: 16px !important; max-width: 100% !important; }
+
+    /* About: single-column, slightly smaller prose */
+    .site-about-cols {
+      columns: 1 !important;
+      font-size: 16px !important;
+      line-height: 1.65 !important;
+    }
+
+    /* Publications: stack cleanly */
     .site-pub-item {
       grid-template-columns: 1fr !important;
       gap: 4px !important;
@@ -57,13 +85,19 @@
       font-style: italic !important;
       margin-top: 6px !important;
     }
-    /* News: collapse grid */
+
+    /* News: collapse date + body into single column */
     .site-news-item {
       grid-template-columns: 1fr !important;
       gap: 4px !important;
     }
+
+    /* Contact email: scale down */
+    .contact-email { font-size: 22px !important; word-break: break-all; }
+
     /* Nav: hide text links, keep CV only */
     .site-nav-links  { display: none !important; }
+
     /* Footer: hide desktop hint, show mobile button */
     .site-konami-desktop { display: none !important; }
     .site-konami-mobile  { display: block !important; }

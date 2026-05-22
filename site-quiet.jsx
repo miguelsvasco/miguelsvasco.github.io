@@ -37,7 +37,7 @@ function SiteQuiet({ density = 'regular', accentOverride, onActivate }) {
       <div style={{ position: 'relative', zIndex: 1, maxWidth: 1280, margin: '0 auto' }}>
 
         {/* ── HEADER ── */}
-        <header style={{
+        <header className="site-header" style={{
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           padding: `28px ${padX}px 0`, gap: 20,
         }}>
@@ -77,7 +77,7 @@ function SiteQuiet({ density = 'regular', accentOverride, onActivate }) {
           gridTemplateColumns: 'minmax(0, 1.6fr) 280px',
           gap: 80, alignItems: 'start',
         }}>
-          <div>
+          <div className="hero-text-block">
             <div className="hero-eyebrow" style={{
               fontFamily: QL.fontMono, fontSize: 11, color: QL.accent,
               letterSpacing: '0.16em', textTransform: 'uppercase', marginBottom: 20,
@@ -210,7 +210,7 @@ function SiteQuiet({ density = 'regular', accentOverride, onActivate }) {
         {/* ── CONTACT ── */}
         <Section id="contact" label="04 · Contact" padX={padX} last>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 18, maxWidth: 560 }}>
-            <div style={{ fontFamily: QL.fontDisp, fontSize: 30 }}>{D.email}</div>
+            <div className="contact-email" style={{ fontFamily: QL.fontDisp, fontSize: 30 }}>{D.email}</div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
               {D.social.map((s) => (
                 <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
@@ -229,7 +229,7 @@ function SiteQuiet({ density = 'regular', accentOverride, onActivate }) {
         </Section>
 
         {/* ── FOOTER ── */}
-        <footer style={{
+        <footer className="site-footer" style={{
           padding: `24px ${padX}px 36px`,
           display: 'flex', justifyContent: 'space-between', alignItems: 'center',
           fontFamily: QL.fontMono, fontSize: 11, color: QL.inkFaint,
@@ -268,7 +268,7 @@ function SiteQuiet({ density = 'regular', accentOverride, onActivate }) {
 
 function Section({ id, label, children, padX, note, last }) {
   return (
-    <section id={id} data-screen-label={id} style={{
+    <section id={id} data-screen-label={id} className="site-section" style={{
       position: 'relative',
       padding: `72px ${padX}px ${last ? 96 : 72}px`,
       borderTop: `1px solid ${QL.rule}`,
