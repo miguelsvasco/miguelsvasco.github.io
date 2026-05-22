@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Miguel Vasco</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  html, body {
+    margin: 0; padding: 0;
+    background: #f7f5f1; color: #1a1815;
+    font-family: "Inter", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  body.bullet-hell-active { overflow: hidden; }
+  html { scroll-behavior: smooth; }
+
+  /* ── Responsive ─────────────────────────────────────────────── */
+  @media (max-width: 800px) {
+    /* Hero: stack vertically, photo first then text */
+    .site-hero-grid {
+      grid-template-columns: 1fr !important;
+      padding-top: 64px !important;
+      padding-bottom: 56px !important;
+      gap: 32px !important;
+    }
+    .site-hero-photo {
+      width: 180px !important;
+      height: 180px !important;
+      order: -1;
+    }
+    /* About: two-column prose → single column on mobile */
+    .site-about-cols { columns: 1 !important; }
+    /* Publications: stack cleanly — year small above, venue below authors */
+    .site-pub-item {
+      grid-template-columns: 1fr !important;
+      gap: 4px !important;
+      padding: 18px 0 !important;
+    }
+    .site-pub-year {
+      display: block !important;
+      font-size: 11px !important;
+      color: #9c9588 !important;
+      padding-bottom: 2px !important;
+    }
+    .site-pub-venue {
+      display: block !important;
+      font-size: 12px !important;
+      text-align: left !important;
+      color: #9c9588 !important;
+      font-style: italic !important;
+      margin-top: 6px !important;
+    }
+    /* News: collapse grid */
+    .site-news-item {
+      grid-template-columns: 1fr !important;
+      gap: 4px !important;
+    }
+    /* Nav: hide text links, keep CV only */
+    .site-nav-links  { display: none !important; }
+    /* Footer: hide desktop hint, show mobile button */
+    .site-konami-desktop { display: none !important; }
+    .site-konami-mobile  { display: block !important; }
+  }
+  @media (min-width: 801px) {
+    .site-konami-mobile  { display: none !important; }
+  }
+  /* Links inside news items */
+  .site-news-item a { color: #c96442; text-decoration: none; border-bottom: 1px dotted #c96442; }
+  .site-news-item a:hover { border-bottom-style: solid; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<!-- React + Babel (pinned) -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<!-- Data + web component -->
+<script src="data.js"></script>
+<script src="image-slot.js"></script>
+
+<!-- Components (order matters: panel → game → konami → site) -->
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="konami.jsx"></script>
+<script type="text/babel" src="bullet-hell.jsx"></script>
+<script type="text/babel" src="site-quiet.jsx"></script>
+
+<script type="text/babel">
+  const { useState, useEffect, useCallback } = React;
+
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "konamiHint": false,
+    "density": "comfy",
+    "accent": "#c96442"
+  }/*EDITMODE-END*/;
+
+  function App() {
+    const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+    const [bulletHell, setBulletHell] = useState(false);
+
+    useEffect(() => {
+      document.body.classList.toggle('bullet-hell-active', bulletHell);
+    }, [bulletHell]);
+
+    const activate = useCallback(() => setBulletHell(true),  []);
+    const exit     = useCallback(() => setBulletHell(false), []);
+
+    return (
+      <>
+        <SiteQuiet
+          density={t.density}
+          accentOverride={t.accent}
+          onActivate={activate}
+        />
+
+        <KonamiGate
+          accent={t.accent}
+          hintVisible={t.konamiHint && !bulletHell}
+          armed={!bulletHell}
+          onActivate={activate}
+        />
+
+        <BulletHell active={bulletHell} accent={t.accent} onExit={exit} />
+
+        <TweaksPanel>
+          <TweakSection label="Layout" />
+          <TweakRadio label="Density" value={t.density}
+                      options={['compact','regular','comfy']}
+                      onChange={(v) => setTweak('density', v)} />
+          <TweakSection label="Color" />
+          <TweakColor label="Accent" value={t.accent}
+                      options={['#c96442','#1f6f60','#3a4a8a','#a8742a','#5a3a8a']}
+                      onChange={(v) => setTweak('accent', v)} />
+          <TweakSection label="Easter egg" />
+          <TweakToggle label="Show Konami hint" value={t.konamiHint}
+                       onChange={(v) => setTweak('konamiHint', v)} />
+          <TweakButton label="↑↑↓↓←→←→BA — fight boss" onClick={activate} />
+        </TweaksPanel>
+      </>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
