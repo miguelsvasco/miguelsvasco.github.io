@@ -273,7 +273,7 @@ function Section({ id, label, children, padX, note, last }) {
       padding: `72px ${padX}px ${last ? 96 : 72}px`,
       borderTop: `1px solid ${QL.rule}`,
     }}>
-      <div style={{
+      <div className="site-section-label" style={{
         display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
         marginBottom: 40, flexWrap: 'wrap', gap: 12,
       }}>
