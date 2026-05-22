@@ -7,6 +7,7 @@
 const { useEffect: bhE, useRef: bhR, useState: bhS, useCallback: bhC } = React;
 
 // ─── constants ────────────────────────────────────────────────────────────────
+const BOSS_NAME    = 'Sword Saint MV';
 const SHIELD_WORDS = ['Miguel', 'Vasco', 'About', 'News', 'Publications', 'Contact'];
 const FALLBACK_WORDS = [
   'reward','agent','policy','value','state','action','episode','return',
@@ -107,7 +108,7 @@ function BulletHell({ active, onExit, accent = '#c96442' }) {
       intro: { dotPos, shieldFrom },
       // Entities
       player: { x: W * 0.5, y: H * 0.8, vx: 0, vy: 0, lives: 3, invuln: 0, trail: [], score: 0, _fireT: 0 },
-      boss:   { x: W * 0.5, y: 130, w: 200, h: 200, hp: 100, maxHp: 100, img: bossImg, imgReady: !!bossSrc && false, bob: 0, shake: 0 },
+      boss:   { x: W * 0.5, y: 130, w: 200, h: 200, hp: 100, maxHp: 100, img: bossImg, imgReady: !!bossSrc && false, bob: 0, shake: 0, particles: [] },
       shields: shieldData,
       bossBullets: [], playerBullets: [],
       patternT: { radial: 1.8, aim: 0.9, wall: 4.0 },
@@ -123,23 +124,41 @@ function BulletHell({ active, onExit, accent = '#c96442' }) {
     if (!active) return;
     const onMove = (e) => { const s = stateRef.current; if (s) { s.mouseX = e.clientX; s.mouseY = e.clientY; } };
     const onTouch = (e) => { const s = stateRef.current; if (s && e.touches[0]) { s.mouseX = e.touches[0].clientX; s.mouseY = e.touches[0].clientY; } };
+    const startGame = () => {
+      if (phaseRef.current === 'ready') {
+        phaseRef.current = 'dialogue';
+        const s = stateRef.current;
+        if (s) s.phaseT = 0;
+        tickHUD();
+      } else if (phaseRef.current === 'dialogue') {
+        const s = stateRef.current;
+        if (s && s.phaseT < 1.0) return; // minimum read time
+        phaseRef.current = 'playing';
+        if (s) { s.player.invuln = 1.2; s.phaseT = 0; }
+        tickHUD();
+      }
+    };
     const onKey = (e) => {
       if (e.key === 'Escape') { onExit(); return; }
+      if (phaseRef.current === 'ready' || phaseRef.current === 'dialogue') { startGame(); return; }
       if ((e.key === 'r' || e.key === 'R') && (phaseRef.current === 'gameover' || phaseRef.current === 'victory')) {
         restartGame(stateRef.current);
         phaseRef.current = 'intro';
         tickHUD();
       }
     };
+    const onClick = () => startGame();
     const onResize = () => { const s = stateRef.current; if (s) { s.W = window.innerWidth; s.H = window.innerHeight; s.boss.x = s.W * 0.5; } };
     window.addEventListener('mousemove', onMove);
     window.addEventListener('touchmove', onTouch, { passive: true });
     window.addEventListener('keydown', onKey);
+    window.addEventListener('click', onClick);
     window.addEventListener('resize', onResize);
     return () => {
       window.removeEventListener('mousemove', onMove);
       window.removeEventListener('touchmove', onTouch);
       window.removeEventListener('keydown', onKey);
+      window.removeEventListener('click', onClick);
       window.removeEventListener('resize', onResize);
     };
   }, [active, onExit, tickHUD]);
@@ -173,16 +192,35 @@ function BulletHell({ active, onExit, accent = '#c96442' }) {
 
       if (phase === 'intro') {
         if (s.phaseT >= INTRO_DURATION) {
-          phaseRef.current = 'playing';
-          s.player.invuln = 1.2;
+          phaseRef.current = 'ready';
           s.phaseT = 0;
           tickHUD();
         }
+      } else if (phase === 'ready' || phase === 'dialogue') {
+        // waits for keypress — handled in input effect
       } else if (phase === 'playing') {
         updateGame(s, dt,
           () => { phaseRef.current = 'gameover'; tickHUD(); },
-          () => { phaseRef.current = 'victory';  tickHUD(); }
+          () => {
+            spawnDeathParticles(s);
+            s.bossBullets = []; s.playerBullets = [];
+            phaseRef.current = 'dying';
+            s.phaseT = 0;
+            tickHUD();
+          }
         );
+      } else if (phase === 'dying') {
+        updateDying(s, dt);
+        if (s.phaseT >= 3.2) {
+          phaseRef.current = 'enemyfelled';
+          s.phaseT = 0;
+          tickHUD();
+        }
+      } else if (phase === 'enemyfelled') {
+        if (s.phaseT >= 5.8) {
+          phaseRef.current = 'victory';
+          tickHUD();
+        }
       }
 
       draw(ctx, s, phaseRef.current);
@@ -204,10 +242,10 @@ function BulletHell({ active, onExit, accent = '#c96442' }) {
 // ─── game update ─────────────────────────────────────────────────────────────
 function updateGame(s, dt, onDie, onWin) {
   const pl = s.player;
-  // Player tracks mouse with springy damping.
-  pl.vx = pl.vx * 0.72 + (clamp(s.mouseX, 20, s.W - 20) - pl.x) * 0.42;
-  pl.vy = pl.vy * 0.72 + (clamp(s.mouseY, 20, s.H - 20) - pl.y) * 0.42;
-  pl.x += pl.vx * 0.5; pl.y += pl.vy * 0.5;
+  // Player tracks mouse — lerp avoids overshoot/oscillation.
+  const f = Math.min(1, dt * 14);
+  pl.x = lerp(pl.x, clamp(s.mouseX, 20, s.W - 20), f);
+  pl.y = lerp(pl.y, clamp(s.mouseY, 20, s.H - 20), f);
   if (pl.invuln > 0) pl.invuln -= dt;
   pl.trail.push({ x: pl.x, y: pl.y });
   if (pl.trail.length > 12) pl.trail.shift();
@@ -305,10 +343,60 @@ function spawnWord(s, x, y, vx, vy) {
   s.bossBullets.push({ x, y, vx, vy, text, hw: text.length * 4.2, life: 9 });
 }
 
+function spawnDeathParticles(s) {
+  const { boss, accent } = s;
+
+  // Rising smoke/ash particles
+  boss.particles = [];
+  for (let i = 0; i < 220; i++) {
+    const maxLife = 0.9 + Math.random() * 1.6;
+    const spawnDelay = Math.random() * 2.4;
+    boss.particles.push({
+      x0: boss.x + (Math.random() - 0.5) * boss.w * 0.92,
+      y0: boss.y + (Math.random() - 0.5) * boss.h * 0.92,
+      x: 0, y: 0, spawned: false,
+      vx: (Math.random() - 0.5) * 14,
+      vy: -(10 + Math.random() * 28),
+      size: 1.5 + Math.random() * 4,
+      life: maxLife, maxLife, spawnDelay,
+      color: Math.random() < 0.35 ? accent : (Math.random() < 0.5 ? '#e8e5dd' : '#c8b898'),
+    });
+  }
+
+  // Pixel-dissolve grid — shuffled so cells vanish in random order
+  const COLS = 20, ROWS = 20;
+  const order = Array.from({ length: COLS * ROWS }, (_, i) => i);
+  for (let i = order.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  const dyingDuration = 3.0;
+  boss.dissolveGrid = order.map((idx, rank) => ({
+    col: idx % COLS,
+    row: Math.floor(idx / COLS),
+    dissolveAt: (rank / order.length) * dyingDuration,
+  }));
+  boss.dissolveGridDims = { cols: COLS, rows: ROWS };
+}
+
+function updateDying(s, dt) {
+  const elapsed = s.phaseT;
+  for (const p of s.boss.particles) {
+    if (!p.spawned) {
+      if (elapsed >= p.spawnDelay) { p.spawned = true; p.x = p.x0; p.y = p.y0; }
+      continue;
+    }
+    p.x += p.vx * dt;
+    p.y += p.vy * dt;
+    p.life -= dt;
+  }
+  s.boss.particles = s.boss.particles.filter(p => !p.spawned || p.life > 0);
+}
+
 function restartGame(s) {
   if (!s) return;
   s.player = { x: s.W * 0.5, y: s.H * 0.8, vx: 0, vy: 0, lives: 3, invuln: 1.2, trail: [], score: 0, _fireT: 0 };
-  s.boss.hp = s.boss.maxHp; s.boss.shake = 0;
+  s.boss.hp = s.boss.maxHp; s.boss.shake = 0; s.boss.particles = []; s.boss.dissolveGrid = null;
   s.bossBullets = []; s.playerBullets = [];
   s.shields = SHIELD_WORDS.map((word, i) => ({
     word, hp: 3, maxHp: 3,
@@ -324,15 +412,24 @@ function draw(ctx, s, phase) {
   const { W, H, accent } = s;
   ctx.clearRect(0, 0, W, H);
 
-  if (phase === 'intro') {
-    drawIntro(ctx, s);
+  if (phase === 'intro' || phase === 'ready') {
+    drawIntro(ctx, s, phase);
     return;
   }
+  if (phase === 'dialogue') {
+    drawDialogue(ctx, s);
+    return;
+  }
+
+  if (phase === 'enemyfelled') { drawEnemyFelled(ctx, s); return; }
 
   // Dark backdrop with subtle grid.
   ctx.fillStyle = 'rgba(10,7,4,0.92)';
   ctx.fillRect(0, 0, W, H);
   drawGrid(ctx, W, H);
+
+  if (phase === 'dying') { drawDying(ctx, s); return; }
+  if (phase === 'victory' || phase === 'gameover') return;
 
   // Shields + boss + bullets + player.
   drawBossEntity(ctx, s, 1);
@@ -348,8 +445,10 @@ function draw(ctx, s, phase) {
   drawHUD(ctx, s);
 }
 
-function drawIntro(ctx, s) {
-  const { W, H, accent, phaseT: t, boss, intro, shields } = s;
+function drawIntro(ctx, s, phase) {
+  const { W, H, accent, boss, intro, shields } = s;
+  const isReady = phase === 'ready';
+  const t = isReady ? INTRO_DURATION : s.phaseT;
 
   // 1. Dark veil — rises over 1.6 s.
   const veilA = ease(t / 1.6) * 0.88;
@@ -407,8 +506,9 @@ function drawIntro(ctx, s) {
     ctx.restore();
   }
 
-  // 5. "READY" label — 3.6 → 4.4s.
-  const readyA = ease((t - 3.6) / 0.4);
+  // 5. Stage card — 3.6s → holds until keypress.
+  const cardT   = isReady ? 1 : t - 3.6;
+  const readyA  = ease(cardT / 0.4);
   if (readyA > 0) {
     ctx.globalAlpha = readyA;
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
@@ -417,12 +517,164 @@ function drawIntro(ctx, s) {
     ctx.fillText('STAGE 01 · BOSS APPEARS', W / 2, H / 2 - 42);
     ctx.font = '800 56px "Source Serif 4", Georgia, serif';
     ctx.fillStyle = accent;
-    ctx.fillText('MV-1', W / 2, H / 2);
+    ctx.fillText(BOSS_NAME, W / 2, H / 2);
     ctx.font = '500 12px "JetBrains Mono", ui-monospace, monospace';
     ctx.fillStyle = 'rgba(255,255,255,0.55)';
-    ctx.fillText('mouse to move  ·  auto-fire  ·  esc to exit', W / 2, H / 2 + 48);
+    ctx.fillText('mouse to move  ·  auto-fire  ·  esc to exit', W / 2, H / 2 + 38);
     ctx.globalAlpha = 1;
   }
+  // 6. "Press any key" — only shown once in ready phase.
+  if (isReady) {
+    const blinkA = 0.5 + 0.5 * Math.sin(s.t * 3.8);
+    ctx.globalAlpha = blinkA;
+    ctx.font = '500 11px "JetBrains Mono", ui-monospace, monospace';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillStyle = '#fff';
+    ctx.fillText('— press any key to begin —', W / 2, H / 2 + 66);
+    ctx.globalAlpha = 1;
+  }
+}
+
+function drawDialogue(ctx, s) {
+  const { W, H, accent, phaseT: t, boss, shields, player } = s;
+
+  ctx.fillStyle = 'rgba(10,7,4,0.92)';
+  ctx.fillRect(0, 0, W, H);
+  drawGrid(ctx, W, H);
+
+  // Boss (bobbing at final position)
+  ctx.save();
+  ctx.translate(boss.x, boss.y + Math.sin(s.t * 1.2) * 4);
+  drawBossImage(ctx, boss, accent, 1);
+  ctx.restore();
+
+  // Boss name plate below portrait
+  ctx.globalAlpha = ease(t / 0.4);
+  ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+  ctx.font = '500 10px "JetBrains Mono", ui-monospace, monospace';
+  ctx.fillStyle = 'rgba(255,255,255,0.45)';
+  ctx.fillText('BOSS', boss.x, boss.y + boss.h * 0.5 + 14);
+  ctx.font = '700 20px "Source Serif 4", Georgia, serif';
+  ctx.fillStyle = accent;
+  ctx.fillText(BOSS_NAME, boss.x, boss.y + boss.h * 0.5 + 28);
+  ctx.globalAlpha = 1;
+
+  // Shields orbiting
+  shields.forEach((sh) => {
+    if (sh.hp <= 0) return;
+    const x = boss.x + Math.cos(sh.angle) * sh.radius;
+    const y = boss.y + Math.sin(sh.angle) * sh.radius * 0.52;
+    drawShield(ctx, x, y, sh, accent);
+  });
+
+  // Player at bottom
+  ctx.save();
+  ctx.translate(player.x, player.y);
+  drawPlayerShape(ctx, accent);
+  ctx.restore();
+
+  // Dialogue box with typewriter text
+  const diagA = ease((t - 0.2) / 0.4);
+  if (diagA > 0) {
+    const bx = W * 0.5, by = boss.y + boss.h * 0.5 + 62;
+    const boxW = Math.min(440, W - 80), boxH = 60;
+    ctx.globalAlpha = diagA;
+    ctx.fillStyle = 'rgba(10,7,4,0.92)';
+    ctx.fillRect(bx - boxW * 0.5, by, boxW, boxH);
+    ctx.strokeStyle = accent + '99';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(bx - boxW * 0.5, by, boxW, boxH);
+
+    const fullText = 'Muahahahaha... You are no match for me.';
+    const shown = Math.floor(ease(Math.max(0, (t - 0.5) / 3.6)) * fullText.length);
+    ctx.font = 'italic 600 15px "Source Serif 4", Georgia, serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillStyle = '#e8e5dd';
+    ctx.fillText(fullText.slice(0, shown), bx, by + boxH * 0.5);
+    ctx.globalAlpha = 1;
+  }
+
+  // "Press any key" prompt once dialogue finishes
+  if (t > 4.5) {
+    const blinkA = (0.5 + 0.5 * Math.sin(s.t * 3.8)) * ease((t - 4.5) / 0.4);
+    ctx.globalAlpha = blinkA;
+    ctx.font = '500 11px "JetBrains Mono", ui-monospace, monospace';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillStyle = '#fff';
+    ctx.fillText('— press any key to fight —', W * 0.5, H * 0.82);
+    ctx.globalAlpha = 1;
+  }
+}
+
+function drawDying(ctx, s) {
+  // bg + grid already drawn before this call
+  const { accent, boss, phaseT: t } = s;
+
+  // Draw boss image at full opacity
+  ctx.save();
+  ctx.translate(boss.x, boss.y);
+  drawBossImage(ctx, boss, accent, 1);
+  ctx.restore();
+
+  // Pixel dissolve — eat away at the image with background-colored squares
+  if (boss.dissolveGrid && boss.dissolveGridDims) {
+    const { cols, rows } = boss.dissolveGridDims;
+    const cw = (boss.w + 10) / cols, ch = (boss.h + 10) / rows;
+    const left = boss.x - boss.w * 0.5 - 5, top = boss.y - boss.h * 0.5 - 5;
+    ctx.fillStyle = '#0a0704';
+    for (const cell of boss.dissolveGrid) {
+      if (t >= cell.dissolveAt) {
+        ctx.fillRect(left + cell.col * cw, top + cell.row * ch, cw + 0.5, ch + 0.5);
+      }
+    }
+  }
+
+  // Rising ash/smoke particles
+  for (const p of boss.particles) {
+    if (!p.spawned) continue;
+    const a = Math.max(0, p.life / p.maxLife);
+    ctx.globalAlpha = a * 0.88;
+    ctx.fillStyle = p.color;
+    const sz = Math.max(0.5, p.size * (0.3 + a * 0.7));
+    ctx.fillRect(p.x - sz * 0.5, p.y - sz * 0.5, sz, sz);
+  }
+  ctx.globalAlpha = 1;
+}
+
+function drawEnemyFelled(ctx, s) {
+  const { W, H, phaseT: t } = s;
+
+  ctx.fillStyle = 'rgba(8,6,4,0.97)';
+  ctx.fillRect(0, 0, W, H);
+
+  // Dark pause 0→2s, fade in 2.0→3.0s, hold, fade out 5.0→5.8s
+  const fadeIn  = ease((t - 2.0) / 1.0);
+  const fadeOut = ease((t - 5.0) / 0.6);
+  const textA   = Math.max(0, fadeIn - fadeOut);
+  if (textA <= 0) return;
+
+  ctx.globalAlpha = textA;
+  const cx = W * 0.5, cy = H * 0.5;
+  const gold = '#d4be8a';
+
+  // Side rules (Elden Ring style)
+  ctx.strokeStyle = gold + '55';
+  ctx.lineWidth = 0.5;
+  ctx.beginPath(); ctx.moveTo(cx - 220, cy); ctx.lineTo(cx - 30, cy); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(cx + 30, cy);  ctx.lineTo(cx + 220, cy); ctx.stroke();
+
+  // Main text
+  ctx.font = '300 54px "Source Serif 4", Georgia, serif';
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillStyle = gold;
+  ctx.fillText('ENEMY FELLED', cx, cy);
+
+  // Boss name subtitle
+  ctx.font = '400 12px "JetBrains Mono", ui-monospace, monospace';
+  ctx.fillStyle = gold + '88';
+  ctx.fillText(BOSS_NAME, cx, cy + 44);
+
+  ctx.globalAlpha = 1;
 }
 
 function drawGrid(ctx, W, H) {
@@ -591,7 +843,7 @@ function drawHUD(ctx, s) {
   ctx.strokeStyle = 'rgba(255,255,255,0.18)'; ctx.lineWidth = 1;
   ctx.strokeRect(hpX + 0.5, hpY + 0.5, hpW - 1, 5);
   ctx.fillStyle = 'rgba(255,255,255,0.65)';
-  ctx.textAlign = 'left';  ctx.fillText('BOSS · MV-1', hpX, hpY - 13);
+  ctx.textAlign = 'left';  ctx.fillText(BOSS_NAME, hpX, hpY - 13);
   ctx.textAlign = 'right'; ctx.fillText(`${Math.ceil(s.boss.hp)} / ${s.boss.maxHp}`, hpX + hpW, hpY - 13);
 
   // Lives.
@@ -652,15 +904,15 @@ function EndCard({ accent, win, score, onExit }) {
       }}>
         <div style={{ color, fontSize: 11, letterSpacing: '0.24em',
                       fontWeight: 700, marginBottom: 18, textTransform: 'uppercase' }}>
-          {win ? 'Boss Defeated' : 'Episode Failed'}
+          {win ? 'Victory' : 'Defeated'}
         </div>
         <div style={{ fontFamily: '"Source Serif 4", Georgia, serif',
                       fontSize: 44, lineHeight: 1.05, marginBottom: 10 }}>
-          {win ? 'well played.' : 'try again?'}
+          {win ? 'well done.' : 'try again?'}
         </div>
         <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: 11,
                       letterSpacing: '0.1em', marginBottom: 28 }}>
-          {win ? 'policy converged' : 'agent terminated'} · score {score}
+          score · {String(score).padStart(5, '0')}
         </div>
         <div style={{ display: 'flex', gap: 10, justifyContent: 'center' }}>
           <button onClick={() => { restartGame(null); window.dispatchEvent(new KeyboardEvent('keydown',{key:'r'})); }}
