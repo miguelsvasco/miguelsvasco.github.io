@@ -17,17 +17,17 @@ window.MV_DATA = {
     "effectively, adapt over time, and align with human perception and preferences.",
 
   bioLong: [
-    "Hi, I'm Miguel, a Postdoctoral Researcher at KTH Royal Institute of Technology " +
+    "Hi, I'm Miguel, a Postdoctoral Researcher at <a href=\"https://www.kth.se/en\" target=\"_blank\">KTH Royal Institute of Technology</a> " +
       "(Stockholm), working with Danica Kragic. My long-term goal is to build artificial " +
       "agents that work with and for humans over time, across physical environments and " +
       "virtual worlds like video games.",
-    "I completed my Ph.D. Summa Cum Laude at Instituto Superior Técnico (Lisbon), where my " +
-      "thesis was awarded the Best PhD Thesis in AI in Portugal by APPIA. I was also selected " +
-      "as an RSS Pioneer in 2021.",
-    "Along the way, I spent time as a visiting researcher at the National Institute of " +
-      "Informatics in Tokyo and as a research intern at Sony AI, where we worked on autonomous " +
-      "racing in Gran Turismo 7, which received an Outstanding Paper Award at RLC 2024.",
-    "Outside the lab, I like cats, anime, and making bad music. My favorite video game is Sonic Adventure 2 on the Sega Dreamcast.",
+    "I completed my Ph.D. Summa Cum Laude at <a href=\"https://tecnico.ulisboa.pt/en/\" target=\"_blank\">Instituto Superior Técnico</a> (Lisbon), where my " +
+      "thesis was awarded the <a href=\"https://www.appia.pt/2024/10/07/vencedor-do-concurso-melhor-tese-de-doutoramento/\" target=\"_blank\">Best PhD Thesis in AI in Portugal</a> by APPIA. I was also selected " +
+      "as an <a href=\"https://sites.google.com/view/rsspioneers2021/participants\" target=\"_blank\">RSS Pioneer</a> in 2021.",
+    "Along the way, I spent time as a visiting researcher at the <a href=\"https://www.nii.ac.jp/en/\" target=\"_blank\">National Institute of Informatics</a> " +
+      "in Tokyo and as a research intern at <a href=\"https://ai.sony/\" target=\"_blank\">Sony AI</a>, where we worked on autonomous " +
+      "racing in Gran Turismo 7, which received an <a href=\"https://rl-conference.cc/2024/blogs/paper_awards.html\" target=\"_blank\">Outstanding Paper Award at RLC 2024</a>.",
+    "Outside the lab, I like cats, anime, and making bad music. My favorite video games of all time are Sekiro and Sonic Adventure 2 on the Sega Dreamcast.",
   ],
 
   contactNote: "",

@@ -74,8 +74,8 @@ function SiteQuiet({ density = 'regular', accentOverride, onActivate }) {
         <section data-screen-label="hero" className="site-hero-grid" style={{
           padding: `112px ${padX}px 96px`,
           display: 'grid',
-          gridTemplateColumns: 'minmax(0, 1.6fr) 280px',
-          gap: 80, alignItems: 'start',
+          gridTemplateColumns: 'minmax(0, 1.6fr) 320px',
+          gap: 80, alignItems: 'center',
         }}>
           <div className="hero-text-block">
             <div className="hero-eyebrow" style={{
@@ -108,7 +108,7 @@ function SiteQuiet({ density = 'regular', accentOverride, onActivate }) {
             placeholder="Drop your photo here"
             className="site-hero-photo"
             style={{
-              display: 'block', width: '280px', height: '280px',
+              display: 'block', width: '320px', height: '320px',
               background: QL.bgAlt, outline: `1px solid ${QL.rule}`,
             }}
           ></image-slot>
@@ -129,7 +129,7 @@ function SiteQuiet({ density = 'regular', accentOverride, onActivate }) {
                     color: QL.accent, fontWeight: 400,
                   }}>{p[0]}</span>
                 )}
-                {i === 0 ? p.slice(1) : p}
+                <span dangerouslySetInnerHTML={{ __html: i === 0 ? p.slice(1) : p }} />
               </p>
             ))}
           </div>
