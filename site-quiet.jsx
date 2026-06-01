@@ -109,19 +109,6 @@ function SiteQuiet({ density = 'regular', accentOverride, onActivate }) {
 
         {/* ── ABOUT ── */}
         <Section id="about" label="About" padX={padX}>
-          <div style={{ marginBottom: 32 }}>
-            <span style={{
-              display: 'inline-block',
-              background: QL.accent,
-              color: '#fff',
-              fontFamily: QL.fontDisp,
-              fontStyle: 'italic',
-              fontWeight: 400,
-              fontSize: 'clamp(18px, 2vw, 24px)',
-              padding: '7px 18px 9px',
-              letterSpacing: '-0.01em',
-            }}>Hello, I'm Miguel</span>
-          </div>
           <div className="site-about-cols" style={{
             columns: 2, columnGap: 56,
             fontSize: 18, lineHeight: 1.72, color: QL.ink,
