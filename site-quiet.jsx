@@ -41,13 +41,6 @@ function SiteQuiet({ density = 'regular', accentOverride, onActivate }) {
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           padding: `28px ${padX}px 0`, gap: 20,
         }}>
-          <div style={{
-            fontFamily: QL.fontMono, fontSize: 11, letterSpacing: '0.12em',
-            textTransform: 'uppercase', color: QL.inkSoft, whiteSpace: 'nowrap',
-          }}>
-            {D.location.toLowerCase()}
-          </div>
-
           {/* Desktop nav */}
           <nav className="site-nav-links" style={{
             display: 'flex', alignItems: 'center', gap: 22, fontSize: 13,
@@ -115,28 +108,34 @@ function SiteQuiet({ density = 'regular', accentOverride, onActivate }) {
         </section>
 
         {/* ── ABOUT ── */}
-        <Section id="about" label="01 · About" padX={padX}>
+        <Section id="about" label="About" padX={padX}>
+          <div style={{ marginBottom: 32 }}>
+            <span style={{
+              display: 'inline-block',
+              background: QL.accent,
+              color: '#fff',
+              fontFamily: QL.fontDisp,
+              fontStyle: 'italic',
+              fontWeight: 400,
+              fontSize: 'clamp(18px, 2vw, 24px)',
+              padding: '7px 18px 9px',
+              letterSpacing: '-0.01em',
+            }}>Hello, I'm Miguel</span>
+          </div>
           <div className="site-about-cols" style={{
             columns: 2, columnGap: 56,
             fontSize: 18, lineHeight: 1.72, color: QL.ink,
           }}>
             {D.bioLong.map((p, i) => (
               <p key={i} style={{ margin: '0 0 1.4em', breakInside: 'avoid' }}>
-                {i === 0 && (
-                  <span style={{
-                    fontFamily: QL.fontDisp, float: 'left',
-                    fontSize: 68, lineHeight: 0.84, padding: '5px 8px 0 0',
-                    color: QL.accent, fontWeight: 400,
-                  }}>{p[0]}</span>
-                )}
-                <span dangerouslySetInnerHTML={{ __html: i === 0 ? p.slice(1) : p }} />
+                <span dangerouslySetInnerHTML={{ __html: p }} />
               </p>
             ))}
           </div>
         </Section>
 
         {/* ── NEWS ── */}
-        <Section id="news" label="02 · News" padX={padX}>
+        <Section id="news" label="News" padX={padX}>
           <ul style={{ listStyle: 'none', margin: 0, padding: 0, maxWidth: 960 }}>
             {D.news.map((n, i) => (
               <li key={i} className="site-news-item" style={{
@@ -157,7 +156,7 @@ function SiteQuiet({ density = 'regular', accentOverride, onActivate }) {
         {/* ── PUBLICATIONS ── */}
         <Section
           id="publications"
-          label="03 · Selected publications"
+          label="Selected publications"
           padX={padX}
           note={
             <span>Complete list on{' '}
@@ -208,7 +207,7 @@ function SiteQuiet({ density = 'regular', accentOverride, onActivate }) {
         </Section>
 
         {/* ── CONTACT ── */}
-        <Section id="contact" label="04 · Contact" padX={padX} last>
+        <Section id="contact" label="Contact" padX={padX} last>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 18, maxWidth: 560 }}>
             <div className="contact-email" style={{ fontFamily: QL.fontDisp, fontSize: 30 }}>{D.email}</div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
@@ -278,7 +277,7 @@ function Section({ id, label, children, padX, note, last }) {
         marginBottom: 40, flexWrap: 'wrap', gap: 12,
       }}>
         <h2 style={{
-          fontFamily: QL.fontMono, fontWeight: 500, fontSize: 12,
+          fontFamily: QL.fontMono, fontWeight: 500, fontSize: 15,
           letterSpacing: '0.16em', textTransform: 'uppercase',
           color: QL.inkSoft, margin: 0,
         }}>{label}</h2>

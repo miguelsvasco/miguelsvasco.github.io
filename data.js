@@ -17,7 +17,7 @@ window.MV_DATA = {
     "effectively, adapt over time, and align with human perception and preferences.",
 
   bioLong: [
-    "Hi, I'm Miguel, a Postdoctoral Researcher at <a href=\"https://www.kth.se/en\" target=\"_blank\">KTH Royal Institute of Technology</a> " +
+    "A Postdoctoral Researcher at <a href=\"https://www.kth.se/en\" target=\"_blank\">KTH Royal Institute of Technology</a> " +
       "(Stockholm), working with Danica Kragic. My long-term goal is to build artificial " +
       "agents that work with and for humans over time, across physical environments and " +
       "virtual worlds like video games.",
